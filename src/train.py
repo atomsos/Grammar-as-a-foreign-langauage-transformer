@@ -79,9 +79,9 @@ class TrainingApp:
         # scheduler=optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.0005, epochs=wandb.config.EPOCHS, steps_per_epoch=len(train_dl), pct_start=0.3)
         
         cbs = [
-            # CheckpointSaver(epoch_cnt=wandb.config.MODEL_SAVE_EPOCH_CNT,),
+            CheckpointSaver(epoch_cnt=wandb.config.MODEL_SAVE_EPOCH_CNT,),
             MoveToDeviceCallback(),
-            # TrackLoss(),
+            TrackLoss(),
             TrackBleu(),
             TrackExample(),
             ]
